@@ -2,20 +2,18 @@
 
 using namespace std;
 
-void bubbleSortDesc(int arr[], int n)
-{
-    for (int i = 0; i < n - 1; i++) {
-        bool swapped = false;
-        for (int j = 0; j < n - 1 - i; j++) {
-            if (arr[j] < arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-                swapped = true;
+// Funkcja do sortowania przez proste wybieranie (malejąco)
+void selectionSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        int maxIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (arr[j] > arr[maxIndex]) {
+                maxIndex = j;
             }
         }
-
-        // If no two elements were swapped by inner loop, then break
-        if (!swapped)
-            break;
+        if (maxIndex != i) {
+            swap(arr[i], arr[maxIndex]);
+        }
     }
 }
 
@@ -39,7 +37,7 @@ int main() {
     cout << "Unsorted array:" << endl;
     printArray(arr, ARR_SIZE);
 
-    bubbleSortDesc(arr, ARR_SIZE);
+    selectionSort(arr, ARR_SIZE);
 
     cout << "\nSorted array descending:" << endl;
     printArray(arr, ARR_SIZE);

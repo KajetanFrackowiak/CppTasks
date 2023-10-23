@@ -2,23 +2,16 @@
 
 using namespace std;
 
-// An optimized version of Bubble Sort
-void bubbleSort(int arr[], int n)
-{
-    int i, j;
-    bool swapped;
-    for (i = 0; i < n; i++) {
-        swapped = false;
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-                swapped = true;
-            }
+// Funkcja do sortowania przez proste wstawianie (rosnąco)
+void insertionSort(int arr[], int size) {
+    for (int i = 1; i < size; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
         }
-
-        // If no two elements were swapped by inner loop, then break
-        if (swapped == false)
-            break;
+        arr[j + 1] = key;
     }
 }
 
@@ -41,7 +34,7 @@ int main() {
     cout << "Unsorted array:" << endl;
     printArray(arr, ARR_SIZE);
 
-    bubbleSort(arr, ARR_SIZE);
+    insertionSort(arr, ARR_SIZE);
 
     cout << "\nSorted array ascending" << endl;
     printArray(arr, ARR_SIZE);
