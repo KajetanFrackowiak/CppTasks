@@ -1,36 +1,55 @@
 #include <iostream>
 #include <limits>
-#include <cmath>
 
 using namespace std;
 
-void toThePower(int num, int power) {
-    double toPower = pow(num, power);
-    cout << num << " to the power of " << power << " is equal " << toPower << endl;
+long factorial(long n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return long(n) * factorial(n - 1);
+    }
+}
+
+long power(long base, long exponent) {
+    if (exponent > 0) {
+        return base * power(base, exponent - 1);
+    } else if (exponent < 0) {
+        return 1.0 / base * power(base, -exponent);
+    } else {
+        return 1.0;
+    }
 }
 
 int main() {
-    int num;
-    int power;
-    cout << ("Enter a number:\n");
+    long num;
+    long exp;
+    cout << "Enter a number:\n";
     cin >> num;
 
     while (cin.fail() || num <= 0) {
-        cout << ("Enter a valid natural number:\n");
+        cout << "Enter a valid positive natural number bigger than 0:\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin >> num;
     }
 
-    cout << ("Write power factor:\n");
-    while (cin.fail() || power <= 0) {
-        cout << ("Enter a valid postiive natural number:\n");
+    cout << "Enter the exponent:\n";
+    cin >> exp;
+    while (cin.fail() || exp < 0) {
+        cout << "Enter a valid non-negative number:\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> power;
+        cin >> exp;
     }
 
-    toThePower(num, power);
+    // Calculating and displaying factorial
+    unsigned long long result = factorial(num);
+    cout << num << "! = " << result << endl;
+
+    // Calculating and displaying a power
+    long result_power = power(num, exp);
+    cout << num << " to the power of " << exp << " is equal to " << result_power << endl;
 
     return 0;
 }
