@@ -1,0 +1,3 @@
+C:/Users/kajte/CLionProjects/Lesson5Task1/cmake-build-debug/CMakeFiles/Lesson5Task1.dir
+C:/Users/kajte/CLionProjects/Lesson5Task1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kajte/CLionProjects/Lesson5Task1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
