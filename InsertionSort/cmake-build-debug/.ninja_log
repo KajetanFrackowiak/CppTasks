@@ -1,0 +1,9 @@
+# ninja log v5
+6	668	7208145468115865	CMakeFiles/InsertionSort.dir/main.cpp.obj	7f19478d80d0dd65
+669	831	7208145469645779	InsertionSort.exe	3db7954872b756ed
+8	683	7208257307434386	CMakeFiles/InsertionSort.dir/main.cpp.obj	7f19478d80d0dd65
+684	871	7208257309244366	InsertionSort.exe	3db7954872b756ed
+6	720	7208258058974313	CMakeFiles/InsertionSort.dir/main.cpp.obj	7f19478d80d0dd65
+721	876	7208258060454279	InsertionSort.exe	3db7954872b756ed
+4	562	7208258908298634	CMakeFiles/InsertionSort.dir/main.cpp.obj	7f19478d80d0dd65
+563	716	7208258909791021	InsertionSort.exe	3db7954872b756ed

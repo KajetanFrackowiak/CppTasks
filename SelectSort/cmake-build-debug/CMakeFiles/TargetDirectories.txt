@@ -1,0 +1,3 @@
+C:/Users/Kajetan/CLionProjects/SelectSort/cmake-build-debug/CMakeFiles/SelectSort.dir
+C:/Users/Kajetan/CLionProjects/SelectSort/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kajetan/CLionProjects/SelectSort/cmake-build-debug/CMakeFiles/rebuild_cache.dir
