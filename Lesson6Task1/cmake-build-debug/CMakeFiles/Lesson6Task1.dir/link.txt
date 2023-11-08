@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Lesson6Task1.dir/main.cpp.o -o Lesson6Task1 

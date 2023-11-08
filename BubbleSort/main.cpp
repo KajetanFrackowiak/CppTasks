@@ -10,7 +10,7 @@ void swap(int arr[], int idx1, int idx2) {
     arr[idx2] = temp;
 }
 
-void sort(int arrayToSort[], int n) {
+void bubbleSort(int arrayToSort[], int n) {
     int it = 0;
     bool swapped = true;
     while (it < n - 1 && swapped) {
@@ -33,9 +33,21 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
+	int numbersNumber;
+    cin >> numbersNumber;
+
+    while (cin.fail() || cin.peek() != '\n') {
+        cout << "Write a valid integer number:" << endl;
+        // Resetuje flagę błędów
+        cin.clear();
+        // Służy do wyczysczenia bufora wejsciowego, ignorując znaki aż do napotkania znaku nowej linii
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> numbersNumber;
+    }
+
 
     srand(time(0)); // Use the current time as a seed
-    int testArray[50];
+    int testArray[numbersNumber];
 
     for (int i = 0; i < sizeof(testArray) / sizeof(testArray[0]); i++) {
         testArray[i] = rand() % 100; // Generate random numbers between 0 and 99

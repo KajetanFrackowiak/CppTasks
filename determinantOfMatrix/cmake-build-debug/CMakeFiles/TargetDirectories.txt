@@ -1,0 +1,3 @@
+/home/kajetan/CLionProjects/determinantOfMatrix/cmake-build-debug/CMakeFiles/determinantOfMatrix.dir
+/home/kajetan/CLionProjects/determinantOfMatrix/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kajetan/CLionProjects/determinantOfMatrix/cmake-build-debug/CMakeFiles/rebuild_cache.dir

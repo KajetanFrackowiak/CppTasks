@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int size;
-    cout << "Hello, enter a number of array elements!" << endl;
+    cout << "Hello, enter a number of array elements:" << endl;
     cin >> size;
 
     while (cin.fail() || cin.peek() != '\n') {
@@ -17,39 +17,33 @@ int main() {
         cin >> size;
     }
 
-    int arr[size];
+    int* arr = new int[size];
 
     srand(time(0));
 
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size; i++) {
         arr[i] = rand() % 100;
     }
 
-    int zero = 0;
-    int* min;
-    min = &zero;
-    int* max;
-    max = &zero;
-    int* sum;
-    sum = &zero;
+    int min = arr[0];
+    int max = arr[0];
+    int sum = 0;
 
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
-        if (arr[i] < *min) {
-            min = &arr[i];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
         }
-        if (arr[i] > *max) {
-            max = &arr[i];
+        if (arr[i] > max) {
+            max = arr[i];
         }
         sum += arr[i];
 
     }
 
-    cout << "The biggest element in array is equal: " << *max << endl;
-    cout << "The smallest element in array is equal: " << *min << endl;
-    cout << "The sum elements of the array is equal: " << *sum << endl;
+    cout << "The biggest element in array is equal: " << max << endl;
+    cout << "The smallest element in array is equal: " << min << endl;
+    cout << "The sum elements of the array is equal: " << sum << endl;
 
-    delete max;
-    delete min;
-    delete sum;
+    delete[] arr; // Deallocate the dynamically allocated array
     return 0;
 }

@@ -9,13 +9,11 @@ void insertionSort(int arr[], int n) {
     int current;
     int otherIndex;
     for (int i = 1; i < n; i++) {
-        current = arr[i]; // 2
+        current = arr[i];
         otherIndex = i;
         while (otherIndex > 0 && current < arr[otherIndex - 1]) {
-            arr[otherIndex] = arr[otherIndex - 1]; // 7
-            otherIndex--; // 0
-            // 7, 2, 4, 5
-            // 7, 7, 4, 5
+            arr[otherIndex] = arr[otherIndex - 1];
+            otherIndex--;
         }
         arr[otherIndex] = current;
     }
@@ -31,7 +29,8 @@ void printArr(int arr[], int n) {
 int main() {
     int numbersNumber;
     cin >> numbersNumber;
-
+	
+	// Sprawdza, czy wystąpił błąd wejscia/wyjscia lub nastepny znak wejscia nie jest znakiem nowej linii
     while (cin.fail() || cin.peek() != '\n') {
         cout << "Write a valid integer number:" << endl;
         // Resetuje flagę błędów
