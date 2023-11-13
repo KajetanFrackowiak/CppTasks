@@ -1,61 +1,89 @@
 #include <iostream>
+#include <string>
 #include <limits>
 
 using namespace std;
 
 struct Student {
-    string name;
-    string surname;
-    int index;
+    string firstName;
+    string lastName;
+    int studentNumber;
 };
 
-int main()
-{
-    Student students[3];  // Students array
-    students[0] = {"Kajetan", "Zurawki"};
-    students[1].name = "Jan";
-    students[1].surname = "Frackowiak";
-    students[2] = {"Krzysztow", "Nowak", 021231123};
+int main() {
+    int maxStudents = 100; // Define an initial maximum number of students
 
-    Student *doctor = new Student;
-    (*doctor).name = "Mateusz";
-    (*doctor).surname = "Kowalski";
-    doctor -> index = 21321312;
+    Student* studentList = new Student[maxStudents]; // Create a dynamic array
 
-    Student *user = new Student;
-    string name;
-    string surname;
-    int index;
-    cout << "Please write name your dear student:" << endl;
-    cin >> name;
-    while (cin.fail() || cin.peek() != '\n') {
-        cout << "Please write corrent string:" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> name;
+    int studentCount = 0; // Keep track of the number of students
+
+    while (true) {
+        cout << "Menu:\n";
+        cout << "1. Add a student\n";
+        cout << "2. Display the list of students\n";
+        cout << "3. Exit\n";
+        cout << "Choose an option: ";
+
+        int option;
+        cin >> option;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please choose a valid option.\n";
+            continue;
+        }
+
+        switch (option) {
+            case 1:
+                if (studentCount < maxStudents) {
+                    cout << "First Name: ";
+                    cin >> studentList[studentCount].firstName;
+                    cout << "Last Name: ";
+                    cin >> studentList[studentCount].lastName;
+
+
+                    if (!(cin >> studentList[studentCount].studentNumber)) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Invalid input. Please enter a valid student number.\n";
+                        continue;
+                    }
+
+                    studentCount++;
+
+                    // Check if the array needs to be resized
+                    if (studentCount == maxStudents) {
+                        maxStudents *= 2; // Double the maximum size
+                        Student* newStudentList = new Student[maxStudents];
+                        for (int i = 0; i < studentCount; i++) {
+                            newStudentList[i] = studentList[i];
+                        }
+                        delete[] studentList;
+                        studentList = newStudentList;
+                    }
+                } else {
+                    cout << "Maximum number of students reached.\n";
+                }
+                break;
+
+            case 2:
+                cout << "List of Students:\n";
+                for (int i = 0; i < studentCount; i++) {
+                    cout << "Student " << i + 1 << ": First Name: " << studentList[i].firstName
+                          << ", Last Name: " << studentList[i].lastName
+                          << ", Student Number: " << studentList[i].studentNumber << endl;
+                }
+                break;
+
+            case 3:
+                delete[] studentList;
+                return 0;
+
+            default:
+                cout << "Invalid option. Please choose again.\n";
+        }
     }
-    user -> name = name;
 
-    cout << "Please write surname your dear student:" << endl;
-    cin >> surname;
-    while (cin.fail() || cin.peek() != '\n') {
-        cout << "Please write corrent string:" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> surname;
-    }
-    user -> surname = surname;
-
-    cout << "Please write index your dear student:" << endl;
-    cin >> index;
-    while (cin.fail() || cin.peek() != '\n') {
-        cout << "Please write corrent string:" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> index;
-    }
-    user -> index = index;
-
-    cout << user->name << " " << user->surname << " " << user->index;
     return 0;
 }

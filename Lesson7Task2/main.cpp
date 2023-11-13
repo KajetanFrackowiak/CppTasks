@@ -1,56 +1,52 @@
-// C++ Program to print the fibonacci series
-// using iteration (loops)
 #include <iostream>
 #include <limits>
-using namespace std;
- 
-// Function to print fibonacci series
-int printFib(int arr[], const int n)
-{
-    // When number of terms is greater than 0
+
+// C is cool
+
+// Function to fill the Fibonacci series in the array
+void fillFib(int arr[], const int n) {
     int prev1 = 1;
     int prev2 = 0;
- 
-    // For loop to print fibonacci series
-    for (int i = 1; i <= n; i++) {
-        if (i > 2) {
+
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            arr[i] = prev2;
+        } else if (i == 1) {
+            arr[i] = prev1;
+        } else {
             const int num = prev1 + prev2;
             prev2 = prev1;
             prev1 = num;
             arr[i] = num;
         }
- 
-        // For first two terms
-        if (i == 1) {
-            arr[i] = prev2;
-        }
-        if (i == 2) {
-            arr[i] = prev1;
-        }
     }
 }
 
-int main()
-{
+int main() {
     int n;
-    cout << "Write how many Fibbonacie's numbers you want:" << endl;
-    cin >> n;
 
-    while (cin.fail() || cin.peek() != '\n' || n < 1) {
-        cout << "Write corrent integer number and bigger not smaller than one:" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> n;
+    printf("Enter how many Fibonacci numbers you want: \n");
+
+    // Check for valid input
+    while(scanf("%d", &n) != 1 || n < 1) {
+        printf("Please enter a valid integer greater than or equal to 1: \n");
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);  // Clear input buffer
+    //  clear the input buffer by consuming and discarding characters until either a
+    //newline character ('\n') or the end of the input (EOF) is encountered.
     }
 
-    int* arr = new int[n]();
+    int* arr = new int[n]();  // Dynamic arra to store Fibonnaci number
 
-    arr[n] = printFib(arr, n);
+    fillFib(arr, n);
 
+    printf("Fibonacci series of %d numbers: ", n);
     for (int i = 0; i < n; i++) {
-        cout << arr[n] << " ";
+        printf("%d ", arr[i]);
     }
+    printf("\n");
 
-    delete arr;
+    delete[] arr;
+
     return 0;
 }
