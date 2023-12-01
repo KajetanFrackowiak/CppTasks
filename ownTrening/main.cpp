@@ -1,19 +1,32 @@
 #include <iostream>
 #include <list>
 #include <utility>
+// add strucutres, classes, pointers. From next lesson 8.12 won't be check obecnosc. musi byc obiektowy projekt i wachlasz, co c++ oferuje
+// polimorfizm, hermetyzacja, dziedziczenia,
 
+class OtherClass : public YoutubeChannel {
+    void addVideo(const std::string& videoTitle) override {
+        std::cout << " " << std::endl;
+    }
+};
 
 class YoutubeChannel {
 public:
-     std::string Name;
+    std::string Name;
     std::string OwnerName;
     int subscibersCount;
     std::list<std::string> PublishedVideo;
 
+    // Constructor
     YoutubeChannel(std::string name, std::string ownerName): subscibersCount(0) {
          this->Name = std::move(name);
          this->OwnerName = std::move(ownerName);
      }
+
+    // Destructor
+    ~YoutubeChannel() { 
+        
+    }
 
      static void printList(const std::list<std::string>&list) {
         for (const std::string& element : list) {
@@ -21,8 +34,8 @@ public:
         }
         std::cout << std::endl;
     }
-
-    void addVideo(const std::string& videoTitle) {
+     
+    virtual void addVideo(const std::string& videoTitle) {
         PublishedVideo.push_back(videoTitle);
     }
 
