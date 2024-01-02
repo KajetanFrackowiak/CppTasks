@@ -1,0 +1,3 @@
+C:/Users/kajte/Desktop/CppTasks/Lesson7Task1/cmake-build-debug/CMakeFiles/Lesson7Task1.dir
+C:/Users/kajte/Desktop/CppTasks/Lesson7Task1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kajte/Desktop/CppTasks/Lesson7Task1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
