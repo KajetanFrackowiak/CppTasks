@@ -1,3 +1,3 @@
-/home/kajetan/CLionProjects/note/cmake-build-debug/CMakeFiles/note.dir
-/home/kajetan/CLionProjects/note/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kajetan/CLionProjects/note/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kajte/Documents/CppTasks/note/cmake-build-debug/CMakeFiles/note.dir
+C:/Users/kajte/Documents/CppTasks/note/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kajte/Documents/CppTasks/note/cmake-build-debug/CMakeFiles/rebuild_cache.dir
